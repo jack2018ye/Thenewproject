@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AccessibilityEntitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="buildings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLUE_small_area" Type="nvarchar" MaxLength="150" />
+          <Property Name="Trading_name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Industry_description" Type="nvarchar" MaxLength="150" />
+          <Property Name="x_coordinate" Type="float" />
+          <Property Name="y_coordinate" Type="float" />
+          <Property Name="Location" Type="nvarchar" MaxLength="150" />
+          <Property Name="Street_address" Type="nvarchar" MaxLength="150" />
+          <Property Name="Predominant_space_use" Type="nvarchar" MaxLength="150" />
+          <Property Name="Accessibility_type" Type="nvarchar" MaxLength="150" />
+          <Property Name="Accessibility_type_description" Type="nvarchar" MaxLength="150" />
+          <Property Name="Accessibility_rating" Type="int" />
+        </EntityType>
+        <EntityType Name="Parking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BayId" Type="int" />
+          <Property Name="lat" Type="float" />
+          <Property Name="lon" Type="float" />
+          <Property Name="area" Type="nvarchar" MaxLength="150" />
+          <Property Name="location" Type="nvarchar" MaxLength="150" />
+          <Property Name="des_dis_ext" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="PublicToilet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lat" Type="numeric" Precision="12" Scale="8" />
+          <Property Name="lon" Type="numeric" Precision="12" Scale="8" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="female" Type="nvarchar" MaxLength="50" />
+          <Property Name="male" Type="nvarchar" MaxLength="50" />
+          <Property Name="wheelchair" Type="nvarchar" MaxLength="50" />
+          <Property Name="operator" Type="nvarchar" MaxLength="50" />
+          <Property Name="baby_facil" Type="nvarchar" MaxLength="50" />
+          <Property Name="location" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address " Type="nvarchar" MaxLength="150" />
+          <Property Name="Postcode" Type="int" />
+        </EntityType>
+        <EntityType Name="TrainStation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="station" Type="nvarchar" MaxLength="150" />
+          <Property Name="location" Type="nvarchar" MaxLength="150" />
+          <Property Name="passenger_information_display_system" Type="nvarchar" MaxLength="150" />
+          <Property Name="hearing_aid" Type="nvarchar" MaxLength="150" />
+          <Property Name="lift" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityContainer Name="AccessibilityEntitiesModelStoreContainer">
+          <EntitySet Name="buildings" EntityType="Self.buildings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parking" EntityType="Self.Parking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PublicToilet" EntityType="Self.PublicToilet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrainStation" EntityType="Self.TrainStation" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AccessibilityEntitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PublicToilet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lat" Type="Decimal" Precision="12" Scale="8" />
+          <Property Name="lon" Type="Decimal" Precision="12" Scale="8" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="female" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="male" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wheelchair" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="operator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="baby_facil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Postcode" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="AccessibilityEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PublicToilets" EntityType="Self.PublicToilet" />
+          <EntitySet Name="buildings" EntityType="AccessibilityEntitiesModel.building" />
+          <EntitySet Name="TrainStations" EntityType="AccessibilityEntitiesModel.TrainStation" />
+          <EntitySet Name="Parkings" EntityType="AccessibilityEntitiesModel.Parking" />
+        </EntityContainer>
+        <EntityType Name="building">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLUE_small_area" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Trading_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Industry_description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="x_coordinate" Type="Double" />
+          <Property Name="y_coordinate" Type="Double" />
+          <Property Name="Location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Street_address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Predominant_space_use" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Accessibility_type" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Accessibility_type_description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Accessibility_rating" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TrainStation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="station" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="passenger_information_display_system" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="hearing_aid" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="lift" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Parking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BayId" Type="Int32" />
+          <Property Name="lat" Type="Double" />
+          <Property Name="lon" Type="Double" />
+          <Property Name="area" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="des_dis_ext" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AccessibilityEntitiesModelStoreContainer" CdmEntityContainer="AccessibilityEntities">
+          <EntitySetMapping Name="PublicToilets">
+            <EntityTypeMapping TypeName="AccessibilityEntitiesModel.PublicToilet">
+              <MappingFragment StoreEntitySet="PublicToilet">
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Address" ColumnName="Address " />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="female" ColumnName="female" />
+                <ScalarProperty Name="male" ColumnName="male" />
+                <ScalarProperty Name="wheelchair" ColumnName="wheelchair" />
+                <ScalarProperty Name="operator" ColumnName="operator" />
+                <ScalarProperty Name="baby_facil" ColumnName="baby_facil" />
+                <ScalarProperty Name="location" ColumnName="location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="buildings">
+            <EntityTypeMapping TypeName="AccessibilityEntitiesModel.building">
+              <MappingFragment StoreEntitySet="buildings">
+                <ScalarProperty Name="Accessibility_rating" ColumnName="Accessibility_rating" />
+                <ScalarProperty Name="Accessibility_type_description" ColumnName="Accessibility_type_description" />
+                <ScalarProperty Name="Accessibility_type" ColumnName="Accessibility_type" />
+                <ScalarProperty Name="Predominant_space_use" ColumnName="Predominant_space_use" />
+                <ScalarProperty Name="Street_address" ColumnName="Street_address" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="y_coordinate" ColumnName="y_coordinate" />
+                <ScalarProperty Name="x_coordinate" ColumnName="x_coordinate" />
+                <ScalarProperty Name="Industry_description" ColumnName="Industry_description" />
+                <ScalarProperty Name="Trading_name" ColumnName="Trading_name" />
+                <ScalarProperty Name="CLUE_small_area" ColumnName="CLUE_small_area" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrainStations">
+            <EntityTypeMapping TypeName="AccessibilityEntitiesModel.TrainStation">
+              <MappingFragment StoreEntitySet="TrainStation">
+                <ScalarProperty Name="lift" ColumnName="lift" />
+                <ScalarProperty Name="hearing_aid" ColumnName="hearing_aid" />
+                <ScalarProperty Name="passenger_information_display_system" ColumnName="passenger_information_display_system" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="station" ColumnName="station" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parkings">
+            <EntityTypeMapping TypeName="AccessibilityEntitiesModel.Parking">
+              <MappingFragment StoreEntitySet="Parking">
+                <ScalarProperty Name="des_dis_ext" ColumnName="des_dis_ext" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="BayId" ColumnName="BayId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

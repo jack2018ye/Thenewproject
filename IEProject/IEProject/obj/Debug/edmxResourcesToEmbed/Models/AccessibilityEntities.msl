@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AccessibilityEntitiesModelStoreContainer" CdmEntityContainer="AccessibilityEntities">
+    <EntitySetMapping Name="PublicToilets">
+      <EntityTypeMapping TypeName="AccessibilityEntitiesModel.PublicToilet">
+        <MappingFragment StoreEntitySet="PublicToilet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="lon" ColumnName="lon" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="female" ColumnName="female" />
+          <ScalarProperty Name="male" ColumnName="male" />
+          <ScalarProperty Name="wheelchair" ColumnName="wheelchair" />
+          <ScalarProperty Name="operator" ColumnName="operator" />
+          <ScalarProperty Name="baby_facil" ColumnName="baby_facil" />
+          <ScalarProperty Name="location" ColumnName="location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="buildings">
+      <EntityTypeMapping TypeName="AccessibilityEntitiesModel.building">
+        <MappingFragment StoreEntitySet="buildings">
+          <ScalarProperty Name="Accessibility_rating" ColumnName="Accessibility_rating" />
+          <ScalarProperty Name="Accessibility_type_description" ColumnName="Accessibility_type_description" />
+          <ScalarProperty Name="Accessibility_type" ColumnName="Accessibility_type" />
+          <ScalarProperty Name="Predominant_space_use" ColumnName="Predominant_space_use" />
+          <ScalarProperty Name="Street_address" ColumnName="Street_address" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="y_coordinate" ColumnName="y_coordinate" />
+          <ScalarProperty Name="x_coordinate" ColumnName="x_coordinate" />
+          <ScalarProperty Name="Industry_description" ColumnName="Industry_description" />
+          <ScalarProperty Name="Trading_name" ColumnName="Trading_name" />
+          <ScalarProperty Name="CLUE_small_area" ColumnName="CLUE_small_area" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
